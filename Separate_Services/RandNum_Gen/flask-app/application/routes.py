@@ -3,7 +3,7 @@ from application import app
 import requests
 import random
 
-@app.route('/')
+
 @app.route('/RandNum', methods=['POST'])
 def RandNum():
 	Rand_int=''
