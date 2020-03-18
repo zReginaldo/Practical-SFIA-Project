@@ -1,0 +1,50 @@
+version: '3.7'
+services:
+  backend:
+    build: ./Backend
+    ports:
+    - target: 5003
+      published: 5003
+      protocol: tcp
+    environment:
+    - SECRET_KEY=secretkey
+    networks:
+    - my-network
+  
+  randnum_gen:
+    build: ./RandNum_Gen
+    ports:
+    - target: 5002
+      published: 5002
+      protocol: tcp
+    environment:
+    - SECRET_KEY=secretkey
+    networks:
+    - my-network
+  
+  randstr_gen:
+    build: ./RandStr_Gen
+    ports:
+    - target: 5001
+      published: 5001
+      protocol: tcp
+    environment:
+    - SECRET_KEY=secretkey
+    networks:
+    - my-network
+    
+  frontend:
+    build: ./Frontend
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
+    environment:
+    - SECRET_KEY=secretkey
+    networks:
+    - my-network
+    depends_on:
+    - backend
+
+networks:
+  my-network:
