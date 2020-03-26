@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block body_content %}
+
+
+<html>
+    <h1>Click to Generate!</h1>
+    <div class='form'>
+        <form method ='GET' action =''>
+            
+            <div>
+                {{form.Create_Letters}}
+            </div>
+
+        </form>
+    <h3>Code: {{letters}}</h3>
+    </div>
+</html> 
+
+{% endblock %}
