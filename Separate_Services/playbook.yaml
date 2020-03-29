@@ -1,0 +1,4 @@
+hosts: Nginx_LB
+become: yes
+roles:
+- Nginx_LB
