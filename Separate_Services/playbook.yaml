@@ -2,3 +2,8 @@ hosts: Nginx_LB
 become: yes
 roles:
 - Nginx_LB
+
+hosts: Jenkins_Ci 
+become: yes 
+roles: 
+- Jenkins_Ci
