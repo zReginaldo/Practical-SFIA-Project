@@ -12,4 +12,13 @@
 * [Project Conclusion](#Conclusion) 
 * [Future Work](#Future Work) 
 
-
+## Contents
+* [Installation](#Installation)
+* [Introduction](#Introduction)
+* [Planning](#Planning)
+* [Use Cases](#Use)
+* [Risk Analysis](#Risk)
+* [Front End Design](#Design)
+* [Testing](#Testing)
+* [CI Pipeline & Deployment](#Deployment)
+* [Project Conclusion](#Conclusion)
