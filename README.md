@@ -1,11 +1,11 @@
 # Practical-SFIA-Project
 
 ## Contents 
-* [Project Breif](#Project Breif)
+* [Project Breif](#ProjectBreif)
 * [Introduction](#Introduction) 
 * [Planning](#Planning)
-* [Use Cases](#User Cases)
-* [Risk Analysis](#Risk Assesment) 
+* [Use Cases](#UserCases)
+* [Risk Analysis](#RiskAssesment) 
 * [Front End Design](#Design) 
 * [Testing](#Testing)
 * [CI Pipeline & Deployment](#Deployment) 
