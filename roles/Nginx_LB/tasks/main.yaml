@@ -1,9 +1,10 @@
 - name: 'download nginx using apt'
   apt:
     pkg:
-    - nginx
-    - git
+    - nginx 
+    - git 
     state: latest
+    update_cache: true
 
 - name: 'Initiate the nginx service'
   service:

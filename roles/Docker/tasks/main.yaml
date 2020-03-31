@@ -1,0 +1,74 @@
+- name: Install Docker
+  hosts: all
+  become: true
+  tasks:
+  - name: jenkins user
+    user:
+      name: jenkins
+      shell: /bin/bash
+  - name: prerequisites
+    apt:
+      pkg:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg2
+      - software-properties-common
+      - python3-pip
+      - python-pip
+      - git
+      state: latest
+      update_cache: true
+
+  - name: docker
+    pip:
+      name: docker
+  - name: json
+    pip:
+      name: jsondiff
+  - name: requests
+    pip:
+      name: requests
+  - name: yaml
+    pip:
+      name: pyyaml
+  - name: compose
+    pip:
+      name: docker-compose
+  - name: docker gpg key
+    apt_key:
+      url: "https://download.docker.com/linux/debian/gpg"
+      state: present
+  - name: docker apt repo
+    apt_repository:
+      repo: "deb [arch=amd64] https://download.docker.com/linux/debian stretch stable"
+      state: present
+
+  - name: docker install
+    apt:
+      pkg:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      state: latest
+      update_cache: true
+  - name: docker service
+    service:
+      name: docker
+      state: started
+  - name: insecure registry create Dir
+    file:
+      path: /etc/docker/
+      state: directory
+      mode: "0700"
+
+  - name: insecure registry copy file
+    copy:
+      src: /home/qa-admin/Ansible/daemon.json
+      dest: /etc/docker/daemon.json
+      mode: u=rw,g=,o=
+  - name: Add jenkins user to docker group
+    user:
+      name: jenkins
+      comment: docker-jenk
+      group: docker
