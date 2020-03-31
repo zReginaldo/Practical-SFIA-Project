@@ -1,0 +1,61 @@
+version: '3.7'
+services:
+  backend:
+    image: zreginaldoz/backend:latest
+    ports:
+    - target: 5003
+      published: 5003
+      protocol: tcp
+    deploy: 
+     replicas: 1 
+    environment:
+    - SECRET_KEY=abcd
+  
+  randnum_gen:
+    image: zreginaldoz/randnum_gen:latest
+    ports:
+    - target: 5002
+      published: 5002
+      protocol: tcp
+    deploy:
+     replicas: 1
+    environment:
+    - SECRET_KEY=abcd
+  
+  randstr_gen:
+    image: zreginaldoz/randstr_gen:latest
+    ports:
+    - target: 5001
+      published: 5001
+      protocol: tcp
+    deploy:
+     replicas: 1
+    environment:
+    - SECRET_KEY=abcd
+    
+  frontend:
+    image: zreginaldoz/frontend:latest
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
+    deploy:
+     replicas: 1
+    environment:
+    - SECRET_KEY=abcd
+
+  mydb:
+    image:
+    container_name:
+    networks: 
+    ports:
+    - target: 3306
+      published: 3306
+    environment: 
+    - MYSQL_ROOT_PASSWORD=${PWD_ROOT}
+    volumes: 
+    type: volume 
+    source: flasksql 
+
+
+

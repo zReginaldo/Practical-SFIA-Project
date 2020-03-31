@@ -1,0 +1,19 @@
+[Nginx_LB] 
+51.132.38.31
+
+[Nginx_LB:vars] 
+ansible user=zreginaldoz
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+
+[Jenkins_Ci]
+51.141.81.50
+
+[Jenkins_Ci:vars]
+ansible user=zreginaldoz
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+ansible_sudo_pass=zReginaldoz 
+
+
+ 

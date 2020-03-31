@@ -1,0 +1,5 @@
+{
+  "test_app.py::test_app_TestLenght": true, 
+  "test_app.py::test_app_TestType": true, 
+  "test_app.py::test_app_url": true
+}
