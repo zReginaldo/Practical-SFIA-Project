@@ -22,4 +22,11 @@ ansible_sudo_pass=zReginaldoz
 [Docker:vars]
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 ansible_ssh_private_key_file=~/.ssh/id_rsa
- 
+
+[Swarm_Initiate]
+51.104.32.229
+51.104.32.236
+
+[Swarm_Initiate:vars]
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_ssh_private_key_file=~/.ssh/id_rsa
