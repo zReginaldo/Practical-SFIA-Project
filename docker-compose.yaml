@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   backend: 
-    image: zreginaldoz/backend:${Version}
+    image: zreginaldoz/backend:latest
     ports:
     - target: 5003
       published: 5003
@@ -9,10 +9,10 @@ services:
     deploy: 
      replicas: 4
     environment:
-    - SECRET_KEY=${rootpass}
+    - SECRET_KEY=hello
   
   randnum_gen:
-    image: zreginaldoz/randnum_gen:${Version}
+    image: zreginaldoz/randnum_gen:latest
     ports:
     - target: 5002
       published: 5002
@@ -20,10 +20,10 @@ services:
     deploy:
      replicas: 4
     environment:
-    - SSECRET_KEY=${rootpass}
+    - SSECRET_KEY=hello
 
   randstr_gen:
-    image: zreginaldoz/randstr_gen:${Version}
+    image: zreginaldoz/randstr_gen:latest
     ports:
     - target: 5001
       published: 5001
@@ -31,10 +31,10 @@ services:
     deploy:
      replicas: 4
     environment:
-    - SECRET_KEY=${rootpass}
+    - SECRET_KEY=hello
     
   frontend:
-    image: zreginaldoz/frontend:${Version}
+    image: zreginaldoz/frontend:latest
     ports:
     - target: 5000
       published: 5000
@@ -42,7 +42,7 @@ services:
     deploy:
      replicas: 4
     environment:
-    - SECRET_KEY=${rootpass}
+    - SECRET_KEY=hello
 
   #mydb:
     #image:

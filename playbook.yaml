@@ -14,7 +14,7 @@
   roles: 
   - Jenkins_Ci
 
-- hosts: Swarm_Manager
-  become: true
+- hosts: Swarm_Initiate 
+  become: yes 
   roles: 
-   - Swarm_Manager
+  - Swarm_Initiate

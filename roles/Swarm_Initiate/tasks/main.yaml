@@ -1,0 +1,16 @@
+- name: Init a new swarm
+  docker_swarm:
+    state: present
+
+- name: Build docker images
+  docker_compose:
+    project_src: /home/jenkins/PracticalSFIAProject
+    build: yes
+  remote_user: zreginaldoz
+  
+- name: Deploy stack from a compose file
+  docker_stack:
+    state: present
+    name: PracticalSFIAProject
+    compose:
+      - /home/jenkins/PracticalSFIAProject/docker-compose.yaml
