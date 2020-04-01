@@ -3,7 +3,7 @@ pipeline{
         stages{
             stage('Ssh In'){
                 steps{
-                      sh """
+                    sh """
                     whoami
                     ssh -tt -i ~/id_rsa zreginaldoz@51.104.32.229 <<EOF
                     ls 
