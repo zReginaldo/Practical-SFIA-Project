@@ -12,7 +12,7 @@
 - hosts: Jenkins_Ci 
   become: yes 
   roles: 
-- Jenkins_Ci
+  - Jenkins_Ci
 
 - hosts: Swarm_Initiate 
   become: yes 
