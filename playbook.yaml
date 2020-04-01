@@ -1,3 +1,9 @@
+
+- hosts: all
+  become: true
+  roles: 
+  - Docker
+
 - hosts: Nginx_LB
   become: yes
   roles:
@@ -7,3 +13,8 @@
   become: yes 
   roles: 
   - Jenkins_Ci
+
+- hosts: Swarm_Manager
+  become: true
+  roles: 
+   - Swarm_Manager

@@ -1,22 +1,22 @@
-- name: Docker Swarm deploy
-  hosts: swarmmaster
-  become: true
-  tasks:
-    - name: Git clone project
-      git:
-        repo: 'https://github.com/PCMBarber/PiersProject.git'
-        dest: /home/jenkins/PiersProject
-    - name: Init a new swarm
-      docker_swarm:
-        state: present
-    - name: Build docker images
-      docker_compose:
-        project_src: /home/jenkins/PiersProject
-        build: yes
-      remote_user: jenkins
-    - name: Deploy stack from a compose file
-      docker_stack:
-        state: present
-        name: piersproject
-        compose:
-          - /home/jenkins/PiersProject/docker-compose.yam
+
+- name: Git clone project
+  git:
+    repo: 'https://github.com/zReginaldo/Practical-SFIA-Project.git'
+    dest: /home/jenkins/Practical-SFIA-Project
+
+- name: Init a new swarm
+  docker_swarm:
+    state: present
+
+- name: Build docker images
+  docker_compose:
+    project_src: /home/jenkins/Practical-SFIA-Project
+    build: yes
+  remote_user: jenkins
+  
+- name: Deploy stack from a compose file
+  docker_stack:
+    state: present
+    name: Practical-SFIA-Project
+    compose:
+      - /home/jenkins/Practical-SFIA-Project/docker-compose.yaml
