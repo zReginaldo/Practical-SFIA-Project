@@ -1,61 +1,58 @@
 version: '3.7'
 services:
-  backend:
-    image: zreginaldoz/backend:latest
+  backend: 
+    image: zreginaldoz/backend:${Version}
     ports:
     - target: 5003
       published: 5003
       protocol: tcp
     deploy: 
-     replicas: 1 
+     replicas: 4
     environment:
-    - SECRET_KEY=abcd
+    - SECRET_KEY=${rootpass}
   
   randnum_gen:
-    image: zreginaldoz/randnum_gen:latest
+    image: zreginaldoz/randnum_gen:${Version}
     ports:
     - target: 5002
       published: 5002
       protocol: tcp
     deploy:
-     replicas: 1
+     replicas: 4
     environment:
-    - SECRET_KEY=abcd
-  
+    - SSECRET_KEY=${rootpass}
+
   randstr_gen:
-    image: zreginaldoz/randstr_gen:latest
+    image: zreginaldoz/randstr_gen:${Version}
     ports:
     - target: 5001
       published: 5001
       protocol: tcp
     deploy:
-     replicas: 1
+     replicas: 4
     environment:
-    - SECRET_KEY=abcd
+    - SECRET_KEY=${rootpass}
     
   frontend:
-    image: zreginaldoz/frontend:latest
+    image: zreginaldoz/frontend:${Version}
     ports:
     - target: 5000
       published: 5000
       protocol: tcp
     deploy:
-     replicas: 1
+     replicas: 4
     environment:
-    - SECRET_KEY=abcd
+    - SECRET_KEY=${rootpass}
 
-  mydb:
-    image:
-    container_name:
-    networks: 
-    ports:
-    - target: 3306
-      published: 3306
-    environment: 
-    - MYSQL_ROOT_PASSWORD=${PWD_ROOT}
-    volumes: 
-    type: volume 
-    source: flasksql 
-
-
-
+  #mydb:
+    #image:
+    #container_name:
+    #networks: 
+   # ports:
+   # - target: 3306
+   #   published: 3306
+  #  environment: 
+   # - MYSQL_ROOT_PASSWORD=${PWD_ROOT}
+   # volumes: 
+   # type: volume 
+   # source: flasksql
