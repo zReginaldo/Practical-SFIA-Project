@@ -6,7 +6,7 @@ pipeline{
                     sh """
                     
                     whoami
-                    ssh -tt -i ~/id_rsa zreginaldoz@51.104.32.229 <<EOF
+                    ssh zreginaldoz@51.104.32.229 << EOF
                     ls 
                     pwd
                     rm -rf Inital_Mvp
