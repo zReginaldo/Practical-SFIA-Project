@@ -16,6 +16,7 @@ pipeline{
                     git clone https://github.com/zReginaldo/PracticalSFIAProject.git
                     cd PracticalSFIAProject
                     docker stack deploy --compose-file docker-compose.yaml flaskapp
+                    EOF
                     """
                }
             }
