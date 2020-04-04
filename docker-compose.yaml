@@ -1,7 +1,8 @@
 version: '3.7'
 services:
-  backend: 
-    image: zreginaldoz/backend:latest
+  backend:
+    build: ./Backend  
+    #image: zreginaldoz/backend:${Version}
     ports:
     - target: 5003
       published: 5003
@@ -12,7 +13,8 @@ services:
     - SECRET_KEY=hello
   
   randnum_gen:
-    image: zreginaldoz/randnum_gen:latest
+    build: ./RandNum_Gen
+    #image: zreginaldoz/randnum_gen:${Version}
     ports:
     - target: 5002
       published: 5002
@@ -23,7 +25,8 @@ services:
     - SSECRET_KEY=hello
 
   randstr_gen:
-    image: zreginaldoz/randstr_gen:latest
+    build: ./RandNum_Gen
+    #image: zreginaldoz/randstr_gen:${Version}
     ports:
     - target: 5001
       published: 5001
@@ -34,7 +37,8 @@ services:
     - SECRET_KEY=hello
     
   frontend:
-    image: zreginaldoz/frontend:latest
+    build: ./Frontend
+    #image: zreginaldoz/frontend:${Version}
     ports:
     - target: 5000
       published: 5000

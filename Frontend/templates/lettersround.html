@@ -1,0 +1,70 @@
+<html>
+
+    <a href="{{ url_for('NumRund') }}">Numbers Round!</a>
+
+    <h1>Welcome To Countdown Numbers Round!</h1>
+
+    
+    <p><button onclick="Letters()">Click Me To Get Letters</button></p>
+
+    <div id="myDIV"></div>
+
+    <script>
+
+        function Letters() {
+        var x = document.getElementById("myDIV");
+        if (x.innerHTML ==='Reveal Your Letters!') {
+            x.innerHTML = '<h3>{{Letters}}</h3>';
+        } 
+        else {
+            x.innerHTML = "Reveal Your Letters!";
+            }
+        }
+
+    </script>
+
+    <script>
+        function validateForm() {
+          var x = document.forms["myForm"]["Word"].value;
+          if (x == "" || x == null) {
+            alert("You Must Input A Word");
+            return false;
+          }
+        }
+    </script>
+
+    <h3>Enter The Word You've Made Below</h3>
+
+    <form name="myForm" action="" onsubmit="return validateForm()" method="post" required>
+
+        <input type="text" name="Word">
+        <input type="submit" value="Post">
+
+    </form>
+
+    <p><button onclick="Word()">Click To See Answer</button></p>
+
+    <div id="myDIV1">NO CHEATING!</div>
+
+    <script>
+
+        function Word() {
+        var x = document.getElementById("myDIV1");
+        if (x.innerHTML ==='Reveal The Longest Word!') {
+            x.innerHTML = '<h3>{{Longst_Wrd}}</h3>';
+        } 
+        else {
+            x.innerHTML = "Reveal The Longest Word!";
+            }
+        }
+    </script>
+
+    <h2>Click to Restart!</h2>
+    <div class='form'>
+        <form method ='GET' action =''>
+            
+            <div>
+                {{formR.Restart}}
+            </div>
+    </div>
+</html> 

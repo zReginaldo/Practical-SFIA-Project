@@ -8,10 +8,16 @@ app.config['SECRET_KEY'] = getenv('SECRET_KEY')
 
 @app.route('/RandNum', methods=['GET','POST'])
 def RandNum():
-	Rand_int=''
-	for i in range(10):
-		Rand_int += str(random.randint(0,9))
-	return Rand_int
+	Large_Numbers = [ "25" , "50" , "75" , "100" ]
+	Numbers = ["25" , "50" , "75" , "100", "1" , "1" , "2" , "2" , "3" , "3" , "4" , "4" , "5" , "5" , "6" , "6" , "7" , "7" , "8" , "8" , "9" , "9" , "10" , "10" ]
+	target = random.randint(100, 999)
+
+	print ("Original list is : " + str(Numbers))
+
+	for i in range(0, len(Numbers)): 
+		Numbers[i] = int(Numbers[i])
+	return str(random.sample(Numbers, 24))
+
 
 if __name__=='__main__':
   app.run(host='0.0.0.0', port=5002, debug=True)
