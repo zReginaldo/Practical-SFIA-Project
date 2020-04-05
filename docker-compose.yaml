@@ -1,8 +1,7 @@
 version: '3.7'
 services:
-  backend:
-    build: ./Backend  
-    #image: zreginaldoz/backend:${Version}
+  backend: 
+    image: zreginaldoz/backend:${Version}
     ports:
     - target: 5003
       published: 5003
@@ -14,8 +13,7 @@ services:
     - Version=${Version}
   
   randnum_gen:
-    build: ./RandNum_Gen
-    #image: zreginaldoz/randnum_gen:${Version}
+    image: zreginaldoz/randnum_gen:${Version}
     ports:
     - target: 5002
       published: 5002
@@ -27,8 +25,7 @@ services:
     - Version=${Version}
 
   randstr_gen:
-    build: ./RandStr_Gen
-    #image: zreginaldoz/randstr_gen:${Version}
+    image: zreginaldoz/randstr_gen:${Version}
     ports:
     - target: 5001
       published: 5001
@@ -40,8 +37,7 @@ services:
     - Version=${Version}
     
   frontend:
-    build: ./Frontend
-    #image: zreginaldoz/frontend:${Version}
+    image: zreginaldoz/frontend:${Version}
     ports:
     - target: 5000
       published: 5000
