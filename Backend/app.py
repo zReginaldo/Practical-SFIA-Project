@@ -77,7 +77,7 @@ def DefNums(smalln,largen):
 	nearest_answer=999999999999
 	nearest_solution=99999999999
 
-	url = 'http://51.104.32.215:5002/RandNum'
+	url = 'http://51.104.32.229:5002/RandNum'
 	Full_Nums = (requests.get(url).text)
 	Full_Nums = Full_Nums [1:-1]
 	Full_Nums = Full_Nums.replace(" ","")
@@ -344,7 +344,7 @@ def GetNums():
 
 @app.route('/Letters', methods=['GET', 'POST'])
 def CDLetters(): 
-	url = 'http://51.104.32.215:5001/RandStr'
+	url = 'http://51.104.32.229:5001/RandStr'
 	Full_Letters = (requests.get(url).text)
 	vowels = []
 	consonants = []
