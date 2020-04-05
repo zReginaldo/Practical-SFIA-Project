@@ -9,6 +9,7 @@ pipeline{
                     git clone https://github.com/zReginaldo/PracticalSFIAProject.git
                     cd PracticalSFIAProject
                     export Version=v2
+                    echo ${Version}
                     docker stack deploy --compose-file docker-compose.yaml flaskapp
                     """
                }
