@@ -27,7 +27,17 @@ My final solution for the project at hand was to create an application based on 
 The best couse of action for initiating this project was to set out a plan that would clearly state the duringation of time i would have to compleate the project, along with the tasks that need to be done so that i stay on track. I decided that using MS Project as my projecet planning technology was the best course of action. The Gantt chart below neatly displays the project deliverables and timeframe on when to compleat each task. 
 
 
-![alt text](https://github.com/zReginaldo/PracticalSFIAProject/blob/master/Documentation/Main_Plan.PNG)
+![Gantt Chart](https://github.com/zReginaldo/PracticalSFIAProject/blob/master/Documentation/Main_Plan.PNG)
+
+<a name="Risk"></a>
+## Risk Analysis
+
+
+
+
+
+![](https://github.com/zReginaldo/PracticalSFIAProject/blob/master/Documentation/Risk%20Assesment.PNG)
+
 
 
 
