@@ -4,15 +4,24 @@ from os import getenv
 from itertools import permutations
 from itertools import combinations_with_replacement 
 from itertools import product
+from os import environ
 import random
 import json
 import os 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = getenv('SECRET_KEY')
+app.config['Version'] = getenv('Version')
+Version = getenv('Version')
 
-large_numbers=2 # max allowed 4 min 0
-small_numbers=4 # 6 - large number
+if Version=="v1":
+	large_numbers=2 # max allowed 4 min 0
+	small_numbers=4 # 6 - large number
+
+elif Version=="v2":
+	large_numbers=1
+	small_numbers=5
+
 target_to_hit=0
 our_large_numbers=[]
 our_small_numbers=[]
@@ -60,8 +69,6 @@ def reversepolishnotation(input1):
     return stack.pop()
 
 def DefNums(smalln,largen):
-	large_numbers=2 # max allowed 4 min 0
-	small_numbers=4 # 6 - large number
 	target_to_hit=0
 	our_large_numbers=[]
 	our_small_numbers=[]
@@ -89,6 +96,7 @@ def DefNums(smalln,largen):
 
 	selected_large_numbers=[]
 	selected_small_numbers=[]
+	print
 
 	target=random.randint(100,999)
 	for i in range(largen):
@@ -193,6 +201,10 @@ def make_formula_more_readable(nearest_solution):
 @app.route('/Numbers', methods=['GET','POST'])
 def GetNums(): 
 	target_to_hit,our_large_numbers,our_small_numbers=DefNums(smalln=small_numbers,largen=large_numbers)
+
+	print ("Your target is ",target_to_hit)
+	print ("Our large number(s) are ",our_large_numbers)
+	print ("Our small number(s) are ",our_small_numbers)
 
 	numbers_to_use=2
 
@@ -345,11 +357,17 @@ def CDLetters():
 			if i == 'b'or i == 'c'or i == 'd'or i == 'f'or i == 'g'or i == 'h'or  i == 'j'or i == 'k'or i == 'l'or i == 'm'or i == 'n'or i == 'p'or i == 'q'or i == 'r'or i == 's'or i == 't'or i == 'v' or i == 'w'or i == 'x'or i == 'y'or i == 'z':
 				consonants.append(i)
 			
-	random_letters = random.sample(vowels,2) + random.sample(consonants, 7)
-	vowels = ['a', 'e', 'i', 'o', 'u']
+	if Version=="v1":
+		 random_letters = random.sample(vowels,2) + random.sample(consonants, 7)
+	
+	elif Version=="v2":
+		random_letters = random.sample(vowels,4) + random.sample(consonants, 8)
+		
 
+	vowels = ['a', 'e', 'i', 'o', 'u']
+	
 	inputLetters = random_letters
-	print(inputLetters)
+	
 
 	#Make list of the other 17 letters as notInputLetters
 	alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']

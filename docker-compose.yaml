@@ -10,6 +10,7 @@ services:
      replicas: 4
     environment:
     - SECRET_KEY=hello
+    - Version=${Version}
   
   randnum_gen:
     image: zreginaldoz/randnum_gen:${Version}
@@ -21,6 +22,7 @@ services:
      replicas: 4
     environment:
     - SSECRET_KEY=hello
+    - Version=${Version}
 
   randstr_gen:
     image: zreginaldoz/randstr_gen:${Version}
@@ -32,6 +34,7 @@ services:
      replicas: 4
     environment:
     - SECRET_KEY=hello
+    - Version=${Version}
     
   frontend:
     image: zreginaldoz/frontend:${Version}
@@ -43,6 +46,7 @@ services:
      replicas: 4
     environment:
     - SECRET_KEY=hello
+    - Version=${Version}
 
   #mydb:
     #image:

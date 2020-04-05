@@ -1,10 +1,14 @@
 from flask import Flask, request, jsonify, Response
 import requests
 import random
+import os
 from os import getenv
+from os import environ
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = getenv('SECRET_KEY')
+app.config['Version'] = getenv('Version')
+Version = app.config['Version']
 
 @app.route('/RandNum', methods=['GET','POST'])
 def RandNum():
@@ -16,7 +20,9 @@ def RandNum():
 
 	for i in range(0, len(Numbers)): 
 		Numbers[i] = int(Numbers[i])
+
 	return str(random.sample(Numbers, 24))
+
 
 
 if __name__=='__main__':
