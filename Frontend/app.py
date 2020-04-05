@@ -12,8 +12,8 @@ app.config['SECRET_KEY'] = getenv('SECRET_KEY')
 app.config['Version'] = getenv('Version')
 Version = getenv('Version')
 
-let = ('http://51.104.32.215:5003/Letters')
-nums = ('http://51.104.32.215:5003/Numbers')
+let = ('http://551.104.32.229:5003/Letters')
+nums = ('http://51.104.32.229:5003/Numbers')
 
 class LettersRound(FlaskForm): 
     Restart = SubmitField('Start Again')
