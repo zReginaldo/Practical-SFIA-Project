@@ -10,7 +10,6 @@ pipeline{
                     cd PracticalSFIAProject
                     export Version=v2
                     docker stack deploy --compose-file docker-compose.yaml flaskapp
-                    echo ${Version}
                     """
                }
             }
