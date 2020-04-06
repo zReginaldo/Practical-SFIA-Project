@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   backend: 
-    build: ./Backend
+    #build: ./Backend
     image: zreginaldoz/backend:${Version}
     ports:
     - target: 5003
@@ -14,7 +14,7 @@ services:
     - Version=${Version}
   
   randnum_gen:
-    build: ./RandNum_Gen
+    #build: ./RandNum_Gen
     image: zreginaldoz/randnum_gen:${Version}
     ports:
     - target: 5002
@@ -27,7 +27,7 @@ services:
     - Version=${Version}
 
   randstr_gen:
-    build: ./RandStr_Gen
+    #build: ./RandStr_Gen
     image: zreginaldoz/randstr_gen:${Version}
     ports:
     - target: 5001
@@ -40,7 +40,8 @@ services:
     - Version=${Version}
     
   frontend:
-    image: zreginaldoz/frontend:${Version}
+    build: ./Frontend
+    #image: zreginaldoz/frontend:${Version}
     ports:
     - target: 5000
       published: 5000
@@ -50,10 +51,11 @@ services:
     environment:
     - SECRET_KEY=hello
     - Version=${Version}
+    - ROOT_PASS=${ROOT_PASS}
 
   mydb:
-    build: ./mydb
-    #image: zreginaldoz/mydb:v1
+    #build: ./mydb
+    image: zreginaldoz/mydb:v1
     ports:
     - 3306
     environment:
