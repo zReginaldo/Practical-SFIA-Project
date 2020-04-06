@@ -32,11 +32,29 @@ The best couse of action for initiating this project was to set out a plan that 
 <a name="Risk"></a>
 ## Risk Analysis
 
+![Risk Analysis](https://github.com/zReginaldo/PracticalSFIAProject/blob/master/Documentation/Risk%20Assesment.PNG)
 
 
+## Project Structure
 
+![Structure](https://github.com/zReginaldo/PracticalSFIAProject/blob/master/Documentation/Project%20Structure.PNG)
 
-![](https://github.com/zReginaldo/PracticalSFIAProject/blob/master/Documentation/Risk%20Assesment.PNG)
+## Testing
+Testing the Random String Generator Service
+
+![Random String](https://github.com/zReginaldo/PracticalSFIAProject/blob/master/Documentation/RandStr%20Tests.PNG)
+
+Testing the Random Number Generator 
+
+![Random Number](https://github.com/zReginaldo/PracticalSFIAProject/blob/master/Documentation/Testing%20RandNum.PNG)
+
+Testing the Backend Service
+
+![Backend](https://github.com/zReginaldo/PracticalSFIAProject/blob/master/Documentation/Testing%20Backend.PNG)
+
+Test Coverage for entire app 
+![Coverage](https://github.com/zReginaldo/PracticalSFIAProject/blob/master/Documentation/Test%20Coverage.PNG)
+
 
 
 
