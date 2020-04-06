@@ -55,6 +55,12 @@ Testing the Backend Service
 Test Coverage for entire app 
 ![Coverage](https://github.com/zReginaldo/PracticalSFIAProject/blob/master/Documentation/Test%20Coverage.PNG)
 
+## Deployment
+All services running on docker-compose 
+
+![Coverage](https://github.com/zReginaldo/PracticalSFIAProject/blob/master/Documentation/Docker%20Deployed%20Services.PNG)
+
+The final Application was deployed sucessfully using Jenkins continuous intergration piepline
 
 
 
