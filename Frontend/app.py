@@ -1,5 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for, request
 from flask_wtf import FlaskForm
+from flask_sqlalchemy import SQLAlchemy
+from wtforms import SubmitField, StringField, validators
 from wtforms import SubmitField
 import wtforms.validators
 import requests
@@ -12,12 +14,24 @@ app.config['SECRET_KEY'] = getenv('SECRET_KEY')
 app.config['Version'] = getenv('Version')
 Version = getenv('Version')
 
-let = ('http://551.104.32.229:5003/Letters')
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:"+getenv('ROOT_PASS')+"zreginaldoz/mydb:v1"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+let = ('http://51.104.32.229:5003/Letters')
 nums = ('http://51.104.32.229:5003/Numbers')
 
 class LettersRound(FlaskForm): 
     Restart = SubmitField('Start Again')
 
+class Letters(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    letters =db.Column(db.String(80), nullable=False)
+
+class Numbers(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    numbers =db.Column(db.String(80), nullable=False)
+    
 
 @app.route('/')
 @app.route ('/lettersround', methods=['GET','POST'])
@@ -28,7 +42,6 @@ def LettRund():
     Longst_Wrd=[]
     Letters=[]
 
-
     if Version=="v1":
         Letters = Full[0:45]
         Longst_Wrd = Full[45:]
@@ -36,6 +49,12 @@ def LettRund():
     elif Version=="v2": 
         Letters = Full[0:60]
         Longst_Wrd = Full[60:] 
+    
+    if request.method =="POST": 
+        data = request.form.to_dict()
+        entry = Letters(letters=data["Word"] )
+        db.session.add(entry)
+        db.session.commit()
 
 
     return render_template('lettersround.html', Longst_Wrd=Longst_Wrd, Letters=Letters, formR=formR)
