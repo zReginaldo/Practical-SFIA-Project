@@ -1,65 +1,101 @@
 <html>
-
-    <a href="{{ url_for('NumRund') }}">Numbers Round!</a>
-
-    <h1>Welcome To a Different Countdown Numbers Round!</h1>
+    <a href="{{ url_for('LettRund') }}">Letters Round!</a>
+   
+    <h1>Welcome To a HARDER Countdown Numbers Round!</h1>
 
     
-    <p><button onclick="Letters()">Click Me To Get Letters</button></p>
+    <p><button onclick="lnums()">Click To Get Big Numbers</button></p>
 
     <div id="myDIV"></div>
 
     <script>
 
-        function Letters() {
+        function lnums() {
         var x = document.getElementById("myDIV");
-        if (x.innerHTML ==='Reveal Your Letters!') {
-            x.innerHTML = '<h3>{{Letters}}</h3>';
+        if (x.innerHTML ==='Reveal Your Big Numbers!') {
+            x.innerHTML = '<h3>{{lnums}}</h3>';
         } 
         else {
-            x.innerHTML = "Reveal Your Letters!";
+            x.innerHTML = 'Reveal Your Big Numbers!';
             }
         }
 
     </script>
 
-    <script>
-        function validateForm() {
-          var x = document.forms["myForm"]["Word"].value;
-          if (x == "" || x == null) {
-            alert("You Must Input A Word");
-            return false;
-          }
-        }
-    </script>
+    <p><button onclick="Snums()">Click To Get Small Numbers</button></p>
 
-    <h3>Enter The Word You've Made Below</h3>
-
-    <form name="myForm" action='/lettersround' onsubmit="return validateForm()" method=" POST" required>
-
-        <input type="text" name="Word">
-        <input type="submit" value="Post">
-
-    </form>
-
-    <p><button onclick="Word()">Click To See Answer</button></p>
-
-    <div id="myDIV1">NO CHEATING!</div>
+    <div id="myDIV1"></div>
 
     <script>
 
-        function Word() {
+        function Snums() {
         var x = document.getElementById("myDIV1");
-        if (x.innerHTML ==='Reveal The Longest Word!') {
-            x.innerHTML = '<h3>{{Longst_Wrd}}</h3>';
+        if (x.innerHTML ==='Reveal Your Small Numbers!') {
+            x.innerHTML = '<h3>{{snums}}</h3>';
         } 
         else {
-            x.innerHTML = "Reveal The Longest Word!";
+            x.innerHTML = "Reveal Your Small Numbers!";
             }
         }
     </script>
-    <h2>{{myForm}}</h2>
 
+
+    <p><button onclick="Target()">Click To Reveal Target Number</button></p>
+
+    <div id="myDIV2"></div>
+
+    <script>
+
+        function Target() {
+        var x = document.getElementById("myDIV2");
+        if (x.innerHTML ==='Reveal Your Target Number!') {
+            x.innerHTML = '<h3>{{target}}</h3>';
+        } 
+        else {
+            x.innerHTML = "Reveal Your Target Number!";
+            }
+        }
+    </script>
+
+</script>
+
+<script>
+    function validateForm() {
+      var x = document.forms["myForm"]["Word"].value;
+      if (x == "" || x == null) {
+        alert("You Must Input A Word");
+        return false;
+      }
+    }
+</script>
+
+<h3>Enter The Number You Managed To Calcuate!</h3>
+
+<form name="myForm" action="" onsubmit="return validateForm()" method="post" required>
+
+    <input type="number" name="Word">
+    <input type="submit" value="Submit">
+
+</form>
+
+    <h3>Reveal Answer!!</h3>
+    <p><button onclick="Calc()">Click Me</button></p>
+
+    <div id="myDIV3">No Cheating!!</div>
+
+    <script>
+
+        function Calc() {
+        var x = document.getElementById("myDIV3");
+        if (x.innerHTML ==='See How You Could Have Calulated The Answer!') {
+            x.innerHTML = '<h3>{{calc}}</h3>';
+        } 
+        else {
+            x.innerHTML = "See How You Could Have Calulated The Answer!";
+            }
+        }
+    </script>
+    <h2>{{Word}}</h2>
     <h2>Click to Restart!</h2>
     <div class='form'>
         <form method ='GET' action =''>
