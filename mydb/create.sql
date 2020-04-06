@@ -1,24 +1,14 @@
 CREATE DATABASE IF NOT EXISTS mydb;
-CREATE TABLE IF NOT EXISTS mydb.users(
-    user_id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    password VARCHAR(150) NOT NULL
-);
 
-CREATE TABLE IF NOT EXISTS mydb.entries (
+CREATE TABLE IF NOT EXISTS mydb.letters (
     entry_id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    user_id INTEGER NOT NULL,
-    numbers CHAR(14) NOT NULL,
-    date DATETIME NOT NULL
+    letterround VARCHAR NOT NULL,
+    
 
 );
 
-CREATE TABLE IF NOT EXISTS mydb.winners(
-    entry_id INTEGER NOT NULL,
-    user_id INTEGER NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (entry_id) REFERENCES entries(entry_id),
-    date DATE NOT NULL PRIMARY KEY
+CREATE TABLE IF NOT EXISTS mydb.numbers (
+    entry_id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    numberround INTEGER NOT NULL,
+
 );
