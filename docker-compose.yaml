@@ -53,7 +53,7 @@ services:
 
   mydb:
     build: ./mydb
-    #image: docktermo/databass
+    #image: zreginaldoz/mydb:v1
     ports:
     - 3306
     environment:
