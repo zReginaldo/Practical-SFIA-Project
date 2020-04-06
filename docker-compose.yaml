@@ -1,6 +1,7 @@
 version: '3.7'
 services:
   backend: 
+    build: ./Backend
     image: zreginaldoz/backend:${Version}
     ports:
     - target: 5003
@@ -13,6 +14,7 @@ services:
     - Version=${Version}
   
   randnum_gen:
+    build: ./RandNum_Gen
     image: zreginaldoz/randnum_gen:${Version}
     ports:
     - target: 5002
@@ -25,6 +27,7 @@ services:
     - Version=${Version}
 
   randstr_gen:
+    build: ./RandStr_Gen
     image: zreginaldoz/randstr_gen:${Version}
     ports:
     - target: 5001
@@ -48,15 +51,18 @@ services:
     - SECRET_KEY=hello
     - Version=${Version}
 
-  #mydb:
-    #image:
-    #container_name:
-    #networks: 
-   # ports:
-   # - target: 3306
-   #   published: 3306
-  #  environment: 
-   # - MYSQL_ROOT_PASSWORD=${PWD_ROOT}
-   # volumes: 
-   # type: volume 
-   # source: flasksql
+  mydb:
+    build: ./mydb
+    #image: docktermo/databass
+    ports:
+    - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASS}
+    networks:
+    - my-network
+    #container_name: databass
+
+    
+networks:
+  my-network:
+
