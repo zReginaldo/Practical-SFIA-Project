@@ -35,7 +35,7 @@
 
     <h3>Enter The Word You've Made Below</h3>
 
-    <form name="myForm" action="" onsubmit="return validateForm()" method="post" required>
+    <form name="myForm" action='/lettersround' onsubmit="return validateForm()" method=" POST" required>
 
         <input type="text" name="Word">
         <input type="submit" value="Post">
@@ -58,6 +58,7 @@
             }
         }
     </script>
+    <h2>{{myForm}}</h2>
 
     <h2>Click to Restart!</h2>
     <div class='form'>
