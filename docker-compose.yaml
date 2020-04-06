@@ -40,8 +40,8 @@ services:
     - Version=${Version}
     
   frontend:
-    build: ./Frontend
-    #image: zreginaldoz/frontend:${Version}
+    #build: ./Frontend
+    image: zreginaldoz/frontend:${Version}
     ports:
     - target: 5000
       published: 5000
